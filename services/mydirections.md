@@ -33,10 +33,15 @@ Read the Rubric to find out about what options exist to earn more marks. Here is
 Route from origin to destination, including waypoints in order:
 
 https://www.google.com/maps/place/?q=place%5Fid%3AChIJaSJBebbL3kcRA3J7ckgsW2Y
+
 https://www.google.com/maps/place/?q=place%5Fid%3AChIJ%5F%2D016KIu30cR%2DRor8MrvVJM
+
 https://www.google.com/maps/place/?q=place%5Fid%3AChIJm%2Di1NjsRdkgR5eH3xUZIL84
+
 https://www.google.com/maps/place/?q=place%5Fid%3AChIJQyEWQUTLcEgRhfNd3dejWSk
+
 https://www.google.com/maps/place/?q=place%5Fid%3AChIJVf133nhie0gRITRAQYTxYaE
+
 https://www.google.com/maps/place/?q=place%5Fid%3AChIJ%5F%2D016KIu30cR%2DRor8MrvVJM
 
 
