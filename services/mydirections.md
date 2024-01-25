@@ -9,7 +9,17 @@ Be creative and use multiple parameters from the API documentation to earn a top
 ## Directions URL
 
 ```
-https://YourDirectionsApiURLGoesHere
+https://maps.googleapis.com/maps/api/directions/json?
+origin=place%5Fid%3AChIJaSJBebbL3kcRA3J7ckgsW2Y
+&destination=place%5Fid%3AChIJ98CZIJrHh0gRWApM5esemkY
+&waypoints=place%5Fid%3AChIJ%5F%2D016KIu30cR%2DRor8MrvVJM
+%7Cplace%5Fid%3AChIJm%2Di1NjsRdkgR5eH3xUZIL84
+%7Cplace%5Fid%3AChIJQyEWQUTLcEgRhfNd3dejWSk
+%7Cplace%5Fid%3AChIJVf133nhie0gRITRAQYTxYaE
+&avoid=highways
+&departure%5Ftime=now
+&traffic%5Fmodel=pessimistic
+&key=AIzaSyCM-WWHYHIKY-do4kquMy9Z4wQaQx51AuE
 ```
 
 Copy/paste the JSON results and save them into the empty file ```mydirections.json``` in this repository
@@ -20,12 +30,14 @@ Read the Rubric to find out about what options exist to earn more marks. Here is
 
 ### Simple option:
 
-(returns map-preferred) Maps PlaceID search: https://www.google.com/maps/place/?q=place_id:ChIJFfiCrdo4Qm0RqPwuOAVtaj8
-### Efficient option
+Route from origin to destination, including waypoints in order:
 
-(returns JSON) API PlaceID link https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJV2BQ4laeekgRFauLvdXbFXE&key=<INSERTKEY>
-
-  which the JSON will have a CID that can be directly used as a URL like https://maps.google.com/?cid=4569584641105657000
+https://www.google.com/maps/place/?q=place%5Fid%3AChIJaSJBebbL3kcRA3J7ckgsW2Y
+https://www.google.com/maps/place/?q=place%5Fid%3AChIJ%5F%2D016KIu30cR%2DRor8MrvVJM
+https://www.google.com/maps/place/?q=place%5Fid%3AChIJm%2Di1NjsRdkgR5eH3xUZIL84
+https://www.google.com/maps/place/?q=place%5Fid%3AChIJQyEWQUTLcEgRhfNd3dejWSk
+https://www.google.com/maps/place/?q=place%5Fid%3AChIJVf133nhie0gRITRAQYTxYaE
+https://www.google.com/maps/place/?q=place%5Fid%3AChIJ%5F%2D016KIu30cR%2DRor8MrvVJM
 
 
 ____
