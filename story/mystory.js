@@ -17,20 +17,20 @@ function initMap() {
     { lat: 44.3662912, lng: -79.6815738}
   ];
         
-  const placeInfo = ["1994: Wasaga Beach is where I spent the first 5 years of my life, blissfully unaware of the party culture I was surrounded by. My mom decided this was not a good place to raise kids.", 
+  //const placeInfo = ["1994: Wasaga Beach is where I spent the first 5 years of my life, blissfully unaware of the party culture I was surrounded by. My mom decided this was not a good place to raise kids.", 
     "1999: Elliot Lake is where my grandma lived, and I spent just under a year here. Even at such a young age, I was taken by the beauty of the lakes and forests of the Canadian Shield."
     ];
 
-  for (let i = 0; i < placeInfo.length; ++i) {
+  // for (let i = 0; i < placeInfo.length; ++i) {
     const markers = locations.map((locations, i) => {
       return new google.maps.Marker({
         position: location,
         label: labels[i % labels.length],
         map: map,
-      }
+  // }
     });
                 
-    addPlaceInfo(markers, placeInfo[i]);
+  //addPlaceInfo(markers, placeInfo[i]);
   }
         
   new MarkerClusterer(map, markers, {
@@ -76,14 +76,14 @@ function animateArrow(lifePath) {
   }, 20);
 }
 
-function addPlaceInfo(markers, placeInfo) {
-  const infowindow = new google.maps.InfoWindow({
-    content: placeInfo,
-  });
-  marker.addListener("click", () => {
-    infowindow.open(marker.get("map"), marker);
-  });
-}
+//function addPlaceInfo(markers, placeInfo) {
+//  const infowindow = new google.maps.InfoWindow({
+//    content: placeInfo,
+//  });
+//  marker.addListener("click", () => {
+//    infowindow.open(marker.get("map"), marker);
+//  });
+//}
 
 window.initMap = initMap;
       
