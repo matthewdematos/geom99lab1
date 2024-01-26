@@ -29,7 +29,7 @@ function initMap() {
   const place8 = "2014: Herne Bay. Beautiful view of the Thames Estuary and the local pub. Beachside walks and musical theatre. A treasure."
   const place9 = "2014: Canterbury. Didn't notice there was an old Norman castle at the roundabout on my street until 6 months in. Walked to work on an ancient Roman city wall. Awesome."
   const place10 = "2016: Barrie. Really not that exciting compared to the last two."
-  const placeInfo = [place1, place 2, place3, place4, place5, place6, place7, place8, place9, place10]
+  const placeInfo = [place1, place2, place3, place4, place5, place6, place7, place8, place9, place10]
   
   for (let i = 0; i < placeInfo.length; ++i) {
     const markers = locations.map((locations, i) => {
@@ -37,9 +37,9 @@ function initMap() {
         position: locations,
         label: labels[i % labels.length],
       })
-      })
-    addPlaceInfo(markers,placeInfo[i]);
-  }     
+    })
+    addPlaceInfo(markers,placeInfo[i])
+  };     
   new MarkerClusterer(map, markers, {
     imagePath: "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",            
   });
