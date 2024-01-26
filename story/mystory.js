@@ -4,6 +4,7 @@ function initMap() {
     zoom: 4,
   });
 
+  // Utilized clustering technique from previous activity, as my locations cover a large area: https://cloud.google.com/blog/products/maps-platform/how-cluster-map-markers
   const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
   const locations = [
@@ -19,6 +20,7 @@ function initMap() {
     { lat: 44.3662912, lng: -79.6815738}
   ];
 
+  // Defined variables for information box contents and created an array so they could be iterated through
   const place1 = "1994: Wasaga Beach. Not a lot of memories, but my mom thought it wouldn't be a good place to raise kids.";
   const place2 = "1999: Elliot Lake. Was only here for a short time, but the Canadian Shield stuck with me forever.";
   const place3 = "2000: Brampton. My bedroom was a storage closet and I went to a Catholic school. C-.";
@@ -31,6 +33,7 @@ function initMap() {
   const place10 = "2016: Barrie. Really not that exciting compared to the last two.";
   const placeInfo = [place1, place2, place3, place4, place5, place6, place7, place8, place9, place10];
 
+  // Add markers using location array
   const markers = locations.map((location, i) => {
     return new google.maps.Marker({
       position: location,
@@ -38,12 +41,15 @@ function initMap() {
     });
   });
 
+  // Used InfoWindow and Events pages to learn iteration through placeInfo array to assign content to InfoWindows
+  //https://developers.google.com/maps/documentation/javascript/infowindows  ||  https://developers.google.com/maps/documentation/javascript/events
+  
   for (let i = 0; i < placeInfo.length; ++i) {
     const infowindow = new google.maps.InfoWindow({
       content: placeInfo[i],
     });
 
-    markers[i].addListener("click", () => {
+    markers[i].addListener("hover", () => {
       infowindow.open(map, markers[i]);
     });
 
@@ -53,13 +59,15 @@ function initMap() {
   new MarkerClusterer(map, markers, {
     imagePath: "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
   });
-
+  
+// Symbol techniques learned using documentation from https://developers.google.com/maps/documentation/javascript/symbols 
   var arrow = {
     path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
     strokeColor: "#FFFFFF",
     scale: 2,
   };
 
+  // Polyline techniques learned using https://developers.google.com/maps/documentation/javascript/shapes
   const lifePath = new google.maps.Polyline({
     path: locations,
     geodesic: true,
@@ -75,14 +83,9 @@ function initMap() {
   lifePath.setMap(map);
 
   animateArrow(lifePath);
-
-  const title = document.createElement("button");
-
-  title.textContent = "Click on a marker to learn more about places I've lived!";
-  title.classList.add("title-button");
-  map.controls[google.maps.ControlPosition.TOP_CENTER].push(title);
 }
 
+// Added animated to symbol using documentation from https://developers.google.com/maps/documentation/javascript/symbols 
 function animateArrow(lifePath) {
   let count = 0;
 
@@ -94,16 +97,6 @@ function animateArrow(lifePath) {
     icons[0].offset = count / 10 + "%";
     lifePath.set("icons", icons);
   }, 20);
-}
-
-function addPlaceInfo(marker, placeInfo) {
-  const infowindow = new google.maps.InfoWindow({
-    content: placeInfo,
-  });
-
-  marker.addListener("click", () => {
-    infowindow.open(marker.getMap(), marker);
-  });
 }
 
 window.initMap = initMap;
