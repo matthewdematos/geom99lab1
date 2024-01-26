@@ -76,9 +76,10 @@ function initMap() {
 
   animateArrow(lifePath);
 
-  const legend = document.getElementById("legend");
+  const title = document.createElement("button");
 
-  map.controls[google.maps.ControlPosition.TOP_CENTER].push(legend);
+  title.textContent = "Click on a marker to learn more about places I've lived!";
+  title.classList.add("title-button");
 }
 
 function animateArrow(lifePath) {
