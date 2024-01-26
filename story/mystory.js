@@ -1,7 +1,7 @@
 function initMap() {
         const map = new google.maps.Map(document.getElementById("map"), {
           center: { lat:  47.104290, lng: -40.677662 },
-          zoom: 3,
+          zoom: 3.5,
           });
         const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
           // Add some markers to the map.
@@ -47,11 +47,11 @@ function animateArrow(lifePath) {
   let count = 0;
 
   window.setInterval(() => {
-    count = (count + 0.25) % 200;
+    count = (count + 1) % 200;
 
     const icons = lifePath.get("icons");
 
-    icons[0].offset = count / 2 + "%";
+    icons[0].offset = count / 6 + "%";
     lifePath.set("icons", icons);
   }, 20);
 }
