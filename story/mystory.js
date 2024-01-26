@@ -11,18 +11,30 @@ function initMap() {
 
         const placeInfo = ["1994: Wasaga Beach is where I spent the first 5 years of my life, blissfully unaware of the party culture I was surrounded by. " +
              "My mom decided this was not a good place to raise kids.", 
-            "<p><b>1999:</b>Elliot Lake is where my grandma lived, and I spent just under a year here. Even at such a young age, I was taken by the beauty of the " +
+            "1999: Elliot Lake is where my grandma lived, and I spent just under a year here. Even at such a young age, I was taken by the beauty of the " +
             "lakes and forests of the Canadian Shield."
              ];
+
+        const locations = [
+        { lat: 44.515887, lng: -80.018285},
+      { lat: 46.369597, lng: -82.669177},
+      { lat: 43.7094533, lng: -79.7256149},
+      { lat: 43.7405, lng: -79.4246224},
+      { lat: 43.87663, lng: -79.4372},
+      { lat: 43.923742, lng: -79.453232},
+      { lat: 44.05217, lng: -79.460616},
+      { lat: 51.37166, lng: 1.134472},
+      { lat: 51.27309, lng: 1.06836},
+      { lat: 44.3662912, lng: -79.6815738}
+      ];
         
 
-        for (let i = 0; i < placeInfo.length; ++i) {
+      for (let i = 0; i < placeInfo.length; ++i) {
                 const markers = locations.map((location, i) => {
                 return new google.maps.Marker({
                     position: location,
                     label: labels[i % labels.length],
           }
-          map: map,
         });
                 
         addPlaceInfo(markers, placeInfo[i]);
@@ -57,6 +69,7 @@ function initMap() {
 
 // Use the DOM setInterval() function to change the offset of the symbol
 // at fixed intervals.
+
 function animateArrow(lifePath) {
   let count = 0;
 
@@ -78,18 +91,6 @@ function addPlaceInfo(markers, placeInfo) {
     infowindow.open(marker.get("map"), marker);
   });
 }
-      const locations = [
-        { lat: 44.515887, lng: -80.018285},
-      { lat: 46.369597, lng: -82.669177},
-      { lat: 43.7094533, lng: -79.7256149},
-      { lat: 43.7405, lng: -79.4246224},
-      { lat: 43.87663, lng: -79.4372},
-      { lat: 43.923742, lng: -79.453232},
-      { lat: 44.05217, lng: -79.460616},
-      { lat: 51.37166, lng: 1.134472},
-      { lat: 51.27309, lng: 1.06836},
-      { lat: 44.3662912, lng: -79.6815738}
-      ];
 
 window.initMap = initMap;
       
