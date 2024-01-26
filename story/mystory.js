@@ -75,6 +75,10 @@ function initMap() {
   lifePath.setMap(map);
 
   animateArrow(lifePath);
+
+  const legend = document.getElementById("legend");
+
+  map.controls[google.maps.ControlPosition.TOP_CENTER].push(legend);
 }
 
 function animateArrow(lifePath) {
