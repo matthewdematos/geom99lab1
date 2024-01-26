@@ -1,11 +1,11 @@
 function initMap() {
   const map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat:  47.104290, lng: -40.677662 },
+    center: { lat: 47.104290, lng: -40.677662 },
     zoom: 3.5,
   });
-  
+
   const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  
+
   const locations = [
     { lat: 44.515887, lng: -80.018285},
     { lat: 46.369597, lng: -82.669177},
@@ -30,21 +30,30 @@ function initMap() {
   const place9 = "2014: Canterbury. Didn't notice there was an old Norman castle at the roundabout on my street until 6 months in. Walked to work on an ancient Roman city wall. Awesome.";
   const place10 = "2016: Barrie. Really not that exciting compared to the last two.";
   const placeInfo = [place1, place2, place3, place4, place5, place6, place7, place8, place9, place10];
-  
-  for (let i = 0; i < placeInfo.length; ++i) {
-    const markers = locations.map((locations, i) => {
-      return new google.maps.Marker({
-        position: locations,
-        label: labels[i % labels.length],
-      })
+
+  const markers = locations.map((location, i) => {
+    return new google.maps.Marker({
+      position: location,
+      label: labels[i % labels.length],
     });
-    addPlaceInfo(markers,placeInfo[i]);
-  }
-  
-  new MarkerClusterer(map, markers, {
-    imagePath: "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",            
   });
-        
+
+  for (let i = 0; i < placeInfo.length; ++i) {
+    const infowindow = new google.maps.InfoWindow({
+      content: placeInfo[i],
+    });
+
+    markers[i].addListener("click", () => {
+      infowindow.open(map, markers[i]);
+    });
+
+    addPlaceInfo(markers[i], placeInfo[i]);
+  }
+
+  new MarkerClusterer(map, markers, {
+    imagePath: "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
+  });
+
   var arrow = {
     path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
     strokeColor: "#FFFFFF",
@@ -68,9 +77,6 @@ function initMap() {
   animateArrow(lifePath);
 }
 
-// Use the DOM setInterval() function to change the offset of the symbol
-// at fixed intervals.
-
 function animateArrow(lifePath) {
   let count = 0;
 
@@ -84,14 +90,14 @@ function animateArrow(lifePath) {
   }, 20);
 }
 
-function addPlaceInfo(markers, placeInfo) {
+function addPlaceInfo(marker, placeInfo) {
   const infowindow = new google.maps.InfoWindow({
     content: placeInfo,
   });
- markers.addListener("click", () => {
-   infowindow.open(markers.get("map"), marker);
+
+  marker.addListener("click", () => {
+    infowindow.open(marker.getMap(), marker);
   });
 }
 
 window.initMap = initMap;
-      
