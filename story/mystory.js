@@ -47,10 +47,10 @@ function animateArrow(lifePath) {
   window.setInterval(() => {
     count = (count + 1) % 200;
 
-    const icons = line.get("icons");
+    const icons = lifePath.get("icons");
 
     icons[0].offset = count / 2 + "%";
-    line.set("icons", icons);
+    lifePath.set("icons", icons);
   }, 20);
 }
 
