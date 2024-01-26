@@ -19,15 +19,22 @@ function initMap() {
           imagePath:
             "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
         });
-      const livedPlaces = new google.maps.Polyline({
+        var arrow = {
+         path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW
+        };
+      const lifePath = new google.maps.Polyline({
           path: locations,
           geodesic: true,
           strokeColor: "#FF0000",
           strokeOpacity: 1.0,
           strokeWeight: 2,
-           });
+          icons: [{
+          icon: arrow,
+          offset: '50%'
+          }],
+        });
 
-          livedPlaces.setMap(map);
+          lifePath.setMap(map);
       }
 
       const locations = [
