@@ -9,26 +9,24 @@ function initMap() {
           // create an array of markers based on a given "locations" array.
           // The map() method here has nothing to do with the Google Maps API.
 
-        const contentString = ["1994: Wasaga Beach is where I spent the first 5 years of my life, blissfully unaware of the party culture I was surrounded by. " +
+        const placeInfo = ["1994: Wasaga Beach is where I spent the first 5 years of my life, blissfully unaware of the party culture I was surrounded by. " +
              "My mom decided this was not a good place to raise kids.", 
             "<p><b>1999:</b>Elliot Lake is where my grandma lived, and I spent just under a year here. Even at such a young age, I was taken by the beauty of the " +
             "lakes and forests of the Canadian Shield."
              ];
         
-        const infowindow = new google.maps.InfoWindow();
-        
-        const markers = locations.map((location, i) => {
-          return new google.maps.Marker({
-            position: location,
-            label: labels[i % labels.length],
-          });
 
-        markers.addListener("click", (function(markers, i) => {
-           return function () { 
-           infowindow.setContent(contentString[i]);
-           infowindow.open(map, marker);
-            };
-        })(markers, i));
+        for (let i = 0; i < placeInfo.length; ++i) {
+                const markers = locations.map((location, i) => {
+                return new google.maps.Marker({
+                    position: location,
+                    label: labels[i % labels.length],
+          }
+          map: map,
+        });
+                
+        addPlaceInfo(markers, placeInfo[i]);
+        }
                 
           // Add a marker clusterer to manage the markers.
         new MarkerClusterer(map, markers, {
@@ -53,7 +51,7 @@ function initMap() {
         });
 
           lifePath.setMap(map);
-        
+
   animateArrow(lifePath);
 }
 
@@ -72,6 +70,14 @@ function animateArrow(lifePath) {
   }, 20);
 }
 
+function addPlaceInfo(markers, placeInfo) {
+  const infowindow = new google.maps.InfoWindow({
+    content: placeInfo,
+  });
+  marker.addListener("click", () => {
+    infowindow.open(marker.get("map"), marker);
+  });
+}
       const locations = [
         { lat: 44.515887, lng: -80.018285},
       { lat: 46.369597, lng: -82.669177},
