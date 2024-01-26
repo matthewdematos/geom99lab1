@@ -47,7 +47,7 @@ function animateArrow(lifePath) {
   let count = 0;
 
   window.setInterval(() => {
-    count = (count + 1) % 50;
+    count = (count + 0.25) % 200;
 
     const icons = lifePath.get("icons");
 
