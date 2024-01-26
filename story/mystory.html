@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<!-- source: https://developers.google.com/maps/documentation/javascript/overview#maps_map_simple-html -->
+<!-- Adapted from https://developers.google.com/maps/documentation/javascript/overview#maps_map_simple-html AND https://cloud.google.com/blog/products/maps-platform/how-cluster-map-markers example-->
 <html>
   <head>
-    <title>Simple Map</title>
+    <title>Placed</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="https://unpkg.com/@google/markerclustererplus@4.0.1/dist/markerclustererplus.min.js"></script>
     <script
@@ -11,8 +11,6 @@
     </script>
     <script src = "mystory.js"></script>
     <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
         #map {
           height: 100%;
         }
@@ -25,23 +23,20 @@
           padding: 0;
         }
 
-      .title-button {
-        background-color: #fff;
-        border: 0;
-        border-radius: 2px;
-        box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
-        margin: 10px;
-        padding: 0 0.5em;
-        font: 400 14px Roboto, Arial, sans-serif;
-        overflow: hidden;
-        height: 25px;
-        cursor: pointer;
-      }
+       #header {
+         padding-top: 10px;
+         padding-bottom: 10px;
+         text-align: center;
+         font-family: helvetica;
+         font-size: 20;
+         font-color: #023020;
+         background-color: #d3d3d3;
     </style>
     
   </head>
   <body>
+    <div id="header"><h3>Click on a marker to learn more about places I've lived!</h3></div>
     <div id="map"></div>
-    <div id="legend"><h3>Click on a marker to learn more about places I've lived!</h3></div>
+    
   </body>
 </html>
