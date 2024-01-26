@@ -19,17 +19,17 @@ function initMap() {
     { lat: 44.3662912, lng: -79.6815738}
   ];
 
-  const place1 = "1994: Wasaga Beach. Not a lot of memories, but my mom thought it wouldn't be a good place to raise kids."
-  const place2 = "1999: Elliot Lake. Was only here for a short time, but the Canadian Shield stuck with me forever."
-  const place3 = "2000: Brampton. My bedroom was a storage closet and I went to a Catholic school. C-."
-  const place4 = "2001: Toronto. Well, North York. The lady next door was Barb the Smoking Lady and we had a view of the 401 which was very entertaining."
-  const place5 = "2002: Richmond Hill (downtown). Beautiful heritage home on a lovely street. First place that felt like home."
-  const place6 = "2006: Richmond Hill (Oak Ridges). This was a new build, and on the date we were supposed to move in, they didn't even have a permit to build. Nice place when it was built, though!"
-  const place7 = "2013: Newmarket: [REDACTED]."
-  const place8 = "2014: Herne Bay. Beautiful view of the Thames Estuary and the local pub. Beachside walks and musical theatre. A treasure."
-  const place9 = "2014: Canterbury. Didn't notice there was an old Norman castle at the roundabout on my street until 6 months in. Walked to work on an ancient Roman city wall. Awesome."
-  const place10 = "2016: Barrie. Really not that exciting compared to the last two."
-  const placeInfo = [place1, place2, place3, place4, place5, place6, place7, place8, place9, place10]
+  const place1 = "1994: Wasaga Beach. Not a lot of memories, but my mom thought it wouldn't be a good place to raise kids.";
+  const place2 = "1999: Elliot Lake. Was only here for a short time, but the Canadian Shield stuck with me forever.";
+  const place3 = "2000: Brampton. My bedroom was a storage closet and I went to a Catholic school. C-.";
+  const place4 = "2001: Toronto. Well, North York. The lady next door was Barb the Smoking Lady and we had a view of the 401 which was very entertaining.";
+  const place5 = "2002: Richmond Hill (downtown). Beautiful heritage home on a lovely street. First place that felt like home.";
+  const place6 = "2006: Richmond Hill (Oak Ridges). This was a new build, and on the date we were supposed to move in, they didn't even have a permit to build. Nice place when it was built, though!";
+  const place7 = "2013: Newmarket: [REDACTED].";
+  const place8 = "2014: Herne Bay. Beautiful view of the Thames Estuary and the local pub. Beachside walks and musical theatre. A treasure.";
+  const place9 = "2014: Canterbury. Didn't notice there was an old Norman castle at the roundabout on my street until 6 months in. Walked to work on an ancient Roman city wall. Awesome.";
+  const place10 = "2016: Barrie. Really not that exciting compared to the last two.";
+  const placeInfo = [place1, place2, place3, place4, place5, place6, place7, place8, place9, place10];
   
   for (let i = 0; i < placeInfo.length; ++i) {
     const markers = locations.map((locations, i) => {
@@ -37,9 +37,10 @@ function initMap() {
         position: locations,
         label: labels[i % labels.length],
       })
-    })
-    addPlaceInfo(markers,placeInfo[i])
-  };     
+    });
+    addPlaceInfo(markers,placeInfo[i]);
+  }
+  
   new MarkerClusterer(map, markers, {
     imagePath: "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",            
   });
