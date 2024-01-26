@@ -27,7 +27,7 @@ function initMap() {
           strokeWeight: 2,
            });
 
-          flightPath.setMap(map);
+          livedPlaces.setMap(map);
       }
 
       const locations = [
@@ -43,4 +43,5 @@ function initMap() {
       { lat: 44.3662912, lng: -79.6815738}
       ];
 
+window.initMap = initMap;
       
