@@ -49,11 +49,11 @@ function initMap() {
       content: placeInfo[i],
     });
 
-    markers[i].addListener("hover", () => {
+    markers[i].addListener("mouseover", () => {
       infowindow.open(map, markers[i]);
     });
 
-    addPlaceInfo(markers[i], placeInfo[i]);
+    //addPlaceInfo(markers[i], placeInfo[i]);
   }
 
   new MarkerClusterer(map, markers, {
