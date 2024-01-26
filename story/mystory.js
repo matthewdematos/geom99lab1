@@ -80,6 +80,7 @@ function initMap() {
 
   title.textContent = "Click on a marker to learn more about places I've lived!";
   title.classList.add("title-button");
+  map.controls[google.maps.ControlPosition.TOP_CENTER].push(toggleDOMButton);
 }
 
 function animateArrow(lifePath) {
