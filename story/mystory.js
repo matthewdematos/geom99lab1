@@ -30,12 +30,29 @@ function initMap() {
           strokeWeight: 2,
           icons: [{
           icon: arrow,
-          offset: '50%'
+          offset: '0%'
           }],
         });
 
           lifePath.setMap(map);
-      }
+        
+  animateArrow(lifePath);
+}
+
+// Use the DOM setInterval() function to change the offset of the symbol
+// at fixed intervals.
+function animateArrow(lifePath) {
+  let count = 0;
+
+  window.setInterval(() => {
+    count = (count + 1) % 200;
+
+    const icons = line.get("icons");
+
+    icons[0].offset = count / 2 + "%";
+    line.set("icons", icons);
+  }, 20);
+}
 
       const locations = [
         { lat: 44.515887, lng: -80.018285},
