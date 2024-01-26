@@ -20,14 +20,16 @@ function initMap() {
             "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
         });
         var arrow = {
-         path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW
+         path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+         strokeColor: "#FFFFFF",
+         scale: 2,
         };
       const lifePath = new google.maps.Polyline({
           path: locations,
           geodesic: true,
-          strokeColor: "#FF0000",
+          strokeColor: "#2E8B57",
           strokeOpacity: 1.0,
-          strokeWeight: 2,
+          strokeWeight: 1.5,
           icons: [{
           icon: arrow,
           offset: '0%'
@@ -45,7 +47,7 @@ function animateArrow(lifePath) {
   let count = 0;
 
   window.setInterval(() => {
-    count = (count + 1) % 200;
+    count = (count + 1) % 50;
 
     const icons = lifePath.get("icons");
 
